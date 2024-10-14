@@ -1,0 +1,100 @@
+/* تصميم أساسي */
+body {
+    display: grid;
+    place-items: center;
+    margin: 0;
+    padding: 0;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.body {
+    display: grid;
+    column-count: 3;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* يجعل الأعمدة متجاوبة */
+    gap: 10px;
+    width: 100%;
+    padding: 20px;
+}
+
+.content {
+    width: 100%;
+    text-align: center;
+    overflow-x: auto;
+}
+
+pre {
+    color: black;
+    font-weight: bold;
+    font-size: 2rem;
+    width: 100%;
+    text-align: center;
+    animation: fadeIn 2s ease-in-out;
+}
+
+/* حركة fade-in للنص */
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        transform: translateY(10px); /* يبدأ النص من أسفل */
+    }
+    100% {
+        opacity: 1; /* يصبح النص مرئي */
+        transform: translateY(0); /* يعود النص إلى موضعه الأصلي */
+    }
+}
+
+.card {
+    margin: 30px;
+    text-align: center;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 15px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+}
+
+.card-title {
+    color: black;
+    font-weight: bold;
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+a {
+    text-decoration: none;
+    color: #974EC3;
+    font-size: 1rem;
+}
+
+a:hover {
+    color: white;
+    background-color: #974EC3;
+    padding: 2px 4px;
+    border-radius: 4px;
+}
+
+/* ميديا كويري للشاشات الصغيرة */
+@media (max-width: 600px) {
+    .body {
+        grid-template-columns: 1fr; /* عمود واحد على الشاشات الصغيرة */
+    }
+
+    pre {
+        font-size: 1.5rem;
+    }
+
+    .card {
+        margin: 15px;
+    }
+}
+
+/* ميديا كويري للشاشات المتوسطة */
+@media (max-width: 768px) {
+    .body {
+        grid-template-columns: repeat(1, 1fr); /* عمودين على الشاشات المتوسطة */
+    }
+}
